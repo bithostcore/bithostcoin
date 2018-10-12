@@ -9,8 +9,8 @@ COIN_PATH='/usr/local/bin/'
 COIN_TGZ='https://github.com//bithostcore/bithostcoin/raw/master/bithost_linux.tar.gz'
 COIN_ZIP=$(echo $COIN_TGZ | awk -F'/' '{print $NF}')
 COIN_NAME='bithost'
-COIN_PORT=29017
-RPC_PORT=29018
+COIN_PORT=29018
+RPC_PORT=29017
 
 NODEIP=$(curl -s4 api.ipify.org)
 
@@ -79,14 +79,14 @@ function create_config() {
   RPCUSER=$(tr -cd '[:alnum:]' < /dev/urandom | fold -w10 | head -n1)
   RPCPASSWORD=$(tr -cd '[:alnum:]' < /dev/urandom | fold -w22 | head -n1)
   cat << EOF > $CONFIGFOLDER/$CONFIG_FILE
-rpcuser=$RPCUSER
-rpcpassword=$RPCPASSWORD
-#rpcport=$RPC_PORT
-rpcallowip=127.0.0.1
-listen=1
-server=1
+rpcuser=user
+rpcpassword=YqEgta3JCz3D7HPR87GN
+rpcport=29017
+port=29018
 daemon=1
-port=$COIN_PORT
+server=1
+rpcallowip=127.0.0.1
+enablezeromint=0
 EOF
 }
 
@@ -250,4 +250,3 @@ checks
 prepare_system
 download_node
 setup_node
-
