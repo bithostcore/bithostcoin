@@ -27,7 +27,9 @@ function download_node() {
   cd ~
   cd bithost_linux
   ./bithostd
-  ./bitcoin-cli stop
+  PID=$!
+sleep 2
+kill $PID
 }
 
 
