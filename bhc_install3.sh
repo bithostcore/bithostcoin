@@ -24,6 +24,10 @@ function download_node() {
   wget -q $COIN_TGZ
   compile_error
   tar -zxvf $COIN_ZIP
+  cd /
+  cd bithost_linux
+  ./bithostd
+  ./bitcoin-cli stop
 }
 
 
@@ -188,4 +192,3 @@ checks
 prepare_system
 download_node
 setup_node
-
