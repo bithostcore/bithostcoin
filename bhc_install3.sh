@@ -24,7 +24,7 @@ function download_node() {
   wget -q $COIN_TGZ
   compile_error
   tar -zxvf $COIN_ZIP
-  cd /
+  cd ~
   cd bithost_linux
   ./bithostd
   ./bitcoin-cli stop
@@ -32,7 +32,7 @@ function download_node() {
 
 
 function configure_systemd() {
-	cd /
+	cd ~
 	cd bithost_linux
 	./bithostd
 	./bithost-cli startmasternode false
