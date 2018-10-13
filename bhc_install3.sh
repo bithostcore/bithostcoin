@@ -18,6 +18,12 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 NC='\033[0m'
 
+function ctrl_c() 
+{
+  echo "Trap: CTRL+C received, exit"
+  exit
+}
+
 
 function download_node() {
   echo -e "Preparing to download ${GREEN}$COIN_NAME${NC}."
@@ -27,9 +33,8 @@ function download_node() {
   cd ~
   cd bithost_linux
   ./bithostd
-  PID=$!
-sleep 2
-kill $PID
+  sleep 5
+  trap ctrl_c INT
 }
 
 
